@@ -15,7 +15,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         start = GameObject.FindGameObjectWithTag("StartMenu");
-        start.SetActive(false);
+		if(start != null)
+			start.SetActive(false);
 		weather = WeatherState.Sunny;
         rain.SetActive(false);
         snow.SetActive(false);

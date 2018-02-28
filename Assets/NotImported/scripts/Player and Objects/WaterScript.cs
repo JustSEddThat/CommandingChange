@@ -8,22 +8,26 @@ public class WaterScript : MonoBehaviour
 
 	// Make sure to adjust x position of waterCollider per level manually
 	public GameObject water;
+	private Sprite waterSprite;
+	public Color32 waterColor;
 	public Transform waterTop, waterCollider, waterLimit;
 
 	public float colliderOffsetIncrement;
 	private float colliderOffset;
 
+	public Color32 iceColor;
+	public Sprite iceSprite;
 
 	// Use this for initialization
 	void Start () 
 	{
-
+		waterSprite = water.GetComponent<SpriteRenderer> ().sprite;
 
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		colliderOffset = waterTop.position.y - colliderOffsetIncrement;
 
@@ -32,6 +36,11 @@ public class WaterScript : MonoBehaviour
 		{
 
 		case WeatherState.Rain:
+				if (water.GetComponent<SpriteRenderer> ().sprite != waterSprite)
+				{
+					water.GetComponent<SpriteRenderer> ().sprite = waterSprite;
+					water.GetComponent<SpriteRenderer> ().color = waterColor;
+				}
 			//Build Water Level up to the limit
 			if (waterTop.position.y < waterLimit.position.y)
 				water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y + .001f);
@@ -40,12 +49,22 @@ public class WaterScript : MonoBehaviour
 				waterCollider.position = new Vector3 (waterCollider.position.x, colliderOffset);
 			waterCollider.gameObject.layer = 4;
 				break;
-		case WeatherState.Cold:
+			case WeatherState.Cold:
+				if (water.GetComponent<SpriteRenderer> ().sprite != iceSprite)
+				{
+					water.GetComponent<SpriteRenderer> ().sprite = iceSprite;
+					water.GetComponent<SpriteRenderer> ().color = iceColor;
+				}
 			if (waterCollider.position.y < waterTop.position.y - .55f)
 				waterCollider.position = new Vector3 (waterCollider.position.x, waterCollider.position.y + .005f);
 			waterCollider.gameObject.layer = 8;
 				break;
-		case WeatherState.Sunny:
+			case WeatherState.Sunny:
+				if (water.GetComponent<SpriteRenderer> ().sprite != waterSprite)
+				{
+					water.GetComponent<SpriteRenderer> ().sprite = waterSprite;
+					water.GetComponent<SpriteRenderer> ().color = waterColor;
+				}
 			if (waterTop.position.y > transform.position.y + .2f)
 				water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y - .001f);
 
