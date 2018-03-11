@@ -17,14 +17,15 @@ public class ButtonScript : MonoBehaviour
     public void unPause()
     {
         gameObject.SetActive(false);
+		Time.timeScale = 1;
     }
     public void toCredits()
     {
-        SceneManager.LoadScene(1);
+		SceneManager.LoadScene("Credits");
     }
     public void ToMainLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("1");
     }
 
     public void toTitle()

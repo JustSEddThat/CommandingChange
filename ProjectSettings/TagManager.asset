@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Box
   - StartMenu
+  - Rain
+  - Snow
+  - Sun
   layers:
   - Default
   - TransparentFX

@@ -28,8 +28,8 @@ public class PlayerScript : MonoBehaviour
 	void FixedUpdate () 
     {
         rb.WakeUp();
-       // if(rb.velocity.magnitude > maxSpeed)
-         //   rb.velocity = rb.velocity.normalized*maxSpeed;
+        if(rb.velocity.magnitude > maxSpeed)
+            rb.velocity = rb.velocity.normalized*maxSpeed;
 		
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal") / 8, 0);
         transform.position += movement;

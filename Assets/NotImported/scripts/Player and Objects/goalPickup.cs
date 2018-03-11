@@ -8,6 +8,7 @@ public class goalPickup : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(DelayLoad());
+
         }
     }
 

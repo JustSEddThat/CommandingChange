@@ -15,6 +15,8 @@ public class WaterScript : MonoBehaviour
 	public float colliderOffsetIncrement;
 	private float colliderOffset;
 
+	public bool touchedByRain;
+
 	public Color32 iceColor;
 	public Sprite iceSprite;
 
@@ -35,18 +37,24 @@ public class WaterScript : MonoBehaviour
 		switch(GameController.weather)
 		{
 
-		case WeatherState.Rain:
+			case WeatherState.Rain:
 				if (water.GetComponent<SpriteRenderer> ().sprite != waterSprite)
 				{
 					water.GetComponent<SpriteRenderer> ().sprite = waterSprite;
 					water.GetComponent<SpriteRenderer> ().color = waterColor;
 				}
-			//Build Water Level up to the limit
-			if (waterTop.position.y < waterLimit.position.y)
-				water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y + .001f);
+					
+				if (touchedByRain)
+				{
 
-			if (waterCollider.position.y != colliderOffset)
-				waterCollider.position = new Vector3 (waterCollider.position.x, colliderOffset);
+					//Build Water Level up to the limit
+					if (waterTop.position.y < waterLimit.position.y)
+						water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y + .001f);
+
+					if (waterCollider.position.y != colliderOffset)
+						waterCollider.position = new Vector3 (waterCollider.position.x, colliderOffset);
+				}
+
 			waterCollider.gameObject.layer = 4;
 				break;
 			case WeatherState.Cold:
@@ -55,9 +63,10 @@ public class WaterScript : MonoBehaviour
 					water.GetComponent<SpriteRenderer> ().sprite = iceSprite;
 					water.GetComponent<SpriteRenderer> ().color = iceColor;
 				}
-			if (waterCollider.position.y < waterTop.position.y - .55f)
-				waterCollider.position = new Vector3 (waterCollider.position.x, waterCollider.position.y + .005f);
-			waterCollider.gameObject.layer = 8;
+				if (waterCollider.position.y < waterTop.position.y - .55f)
+					waterCollider.position = new Vector3 (waterCollider.position.x, waterCollider.position.y + .005f);
+				waterCollider.gameObject.layer = 8;
+				touchedByRain = false;
 				break;
 			case WeatherState.Sunny:
 				if (water.GetComponent<SpriteRenderer> ().sprite != waterSprite)
@@ -65,13 +74,13 @@ public class WaterScript : MonoBehaviour
 					water.GetComponent<SpriteRenderer> ().sprite = waterSprite;
 					water.GetComponent<SpriteRenderer> ().color = waterColor;
 				}
-			if (waterTop.position.y > transform.position.y + .2f)
-				water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y - .001f);
+				if (waterTop.position.y > transform.position.y + .2f)
+					water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y - .001f);
 
-			if (waterCollider.position.y != colliderOffset)
-				waterCollider.position = new Vector3 (waterCollider.position.x, colliderOffset);
-
-			waterCollider.gameObject.layer = 4;
+				if (waterCollider.position.y != colliderOffset)
+					waterCollider.position = new Vector3 (waterCollider.position.x, colliderOffset);
+				touchedByRain = false;
+				waterCollider.gameObject.layer = 4;
 				break; 
 		}
 	}

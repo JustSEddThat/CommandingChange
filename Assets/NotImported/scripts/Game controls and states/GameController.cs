@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameController : MonoBehaviour 
 {
+
+
 
     public float maxSpeed = 5f;
     private GameObject start;
@@ -10,6 +13,12 @@ public class GameController : MonoBehaviour
     public GameObject sun;
     public GameObject snow;
 	public static WeatherState weather; 
+
+	//For scoring
+	private float time;
+	public Text timeText;
+	private float weatherChanges;
+	private string level;
 
 
     void Start()
@@ -20,6 +29,10 @@ public class GameController : MonoBehaviour
 		weather = WeatherState.Sunny;
         rain.SetActive(false);
         snow.SetActive(false);
+
+		level = SceneManager.GetActiveScene ().name;
+
+
     }
 
     void Update()
@@ -51,15 +64,29 @@ public class GameController : MonoBehaviour
                 weather = WeatherState.Sunny;
             else
                 weather = WeatherState.Rain;
+
+			weatherChanges++;
         }
 
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if (Input.GetKeyDown(KeyCode.P))
-            start.SetActive(true);
-            
+		if (Input.GetKeyDown (KeyCode.P))
+		{
+			start.SetActive (true);
+			Time.timeScale = 0;
+		}      
     }
+
+	void FixedUpdate()
+	{
+		time += Time.deltaTime;
+		timeText.text = Mathf.Round (time)+ " seconds";
+	}
+
+
 
 
 }
+
+
 
