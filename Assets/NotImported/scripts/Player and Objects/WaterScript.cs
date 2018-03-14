@@ -49,7 +49,7 @@ public class WaterScript : MonoBehaviour
 
 					//Build Water Level up to the limit
 					if (waterTop.position.y < waterLimit.position.y)
-						water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y + .001f);
+						water.transform.localScale = new Vector3 (water.transform.localScale.x, water.transform.localScale.y + .002f);
 
 					if (waterCollider.position.y != colliderOffset)
 						waterCollider.position = new Vector3 (waterCollider.position.x, colliderOffset);

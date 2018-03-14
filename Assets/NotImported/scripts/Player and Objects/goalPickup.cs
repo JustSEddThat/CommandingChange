@@ -15,7 +15,10 @@ public class goalPickup : MonoBehaviour {
     IEnumerator DelayLoad()
     {
         yield return new WaitForSecondsRealtime(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+		if (SceneManager.GetActiveScene ().name.Equals ("5"))
+			SceneManager.LoadScene ("Title");
+		else
+        	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
 }

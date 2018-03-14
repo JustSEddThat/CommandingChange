@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212686690312115424}
   - component: {fileID: 61593957473947782}
   - component: {fileID: 114956286636980550}
-  m_Layer: 0
+  - component: {fileID: 114752163095103442}
+  m_Layer: 11
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,6 +235,17 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 3721983553
   iceSprite: {fileID: 21300000, guid: bb93ee7d499409a48835524222bcfdd5, type: 3}
+--- !u!114 &114752163095103442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506888685668578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6304f58869e2e49955d28faa5dc39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114956286636980550
 MonoBehaviour:
   m_ObjectHideFlags: 1

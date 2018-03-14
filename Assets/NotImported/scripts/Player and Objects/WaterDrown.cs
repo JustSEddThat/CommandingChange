@@ -18,8 +18,10 @@ public class WaterDrown : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-      //  if (other.CompareTag("Player") && GameController.weather == WeatherState.Cold)
-        //    other.gameObject.GetComponent<PlayerScript>().isFrozen = true;
+		if (other.CompareTag ("Player") && GameController.weather == WeatherState.Cold)
+		{
+			other.gameObject.GetComponent<PlayerScript> ().isFrozen = true;
+		}
     }
 
 

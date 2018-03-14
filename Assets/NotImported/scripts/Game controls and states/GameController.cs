@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
 		level = SceneManager.GetActiveScene ().name;
 
 
+
+
     }
 
     void Update()
@@ -70,6 +72,7 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		
 		if (Input.GetKeyDown (KeyCode.P))
 		{
 			start.SetActive (true);
@@ -81,6 +84,11 @@ public class GameController : MonoBehaviour
 	{
 		time += Time.deltaTime;
 		timeText.text = Mathf.Round (time)+ " seconds";
+
+		if (start.activeSelf)
+		if (Input.GetKey (KeyCode.Alpha0))
+		if(Input.GetKeyUp(KeyCode.A))
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 	}
 
 

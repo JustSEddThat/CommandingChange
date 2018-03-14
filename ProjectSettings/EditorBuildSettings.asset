@@ -15,14 +15,20 @@ EditorBuildSettings:
     path: Assets/NotImported/Scenes/Credits.unity
     guid: b279abd1776c4f44cb8d71d46b69f685
   - enabled: 1
-    path: Assets/NotImported/Scenes/Test.unity
+    path: Assets/NotImported/Scenes/1.unity
     guid: a50aa94e0d9b26a44b98414181517f92
   - enabled: 1
     path: Assets/NotImported/Scenes/2.unity
-    guid: c849f8b61d18424408aece8f1b0f057d
+    guid: b1676a45dc61f924e8645f24c852f6d4
   - enabled: 1
     path: Assets/NotImported/Scenes/3.unity
     guid: 369cdf324cf9f3c439e1f09bddc1b4fa
+  - enabled: 1
+    path: Assets/NotImported/Scenes/5.unity
+    guid: c849f8b61d18424408aece8f1b0f057d
+  - enabled: 1
+    path: Assets/NotImported/Scenes/4.unity
+    guid: 7c7fcb087a608284f83dc9f0d3e71107
   - enabled: 1
     path: Assets/NotImported/Scenes/Won.unity
     guid: ae92a3e516a44884eab510bcaf4fd1fc
