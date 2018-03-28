@@ -20,7 +20,8 @@ public class WaterDrown : MonoBehaviour
     {
 		if (other.CompareTag ("Player") && GameController.weather == WeatherState.Cold)
 		{
-			other.gameObject.GetComponent<PlayerScript> ().isFrozen = true;
+			if(other.gameObject.GetComponent<PlayerScript> () != null)
+				other.gameObject.GetComponent<PlayerScript> ().isFrozen = true;
 		}
     }
 
