@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public GameObject sun;
     public GameObject snow;
 	public static WeatherState weather; 
+	public AudioSource sfxSource;
+	public AudioClip WERChange;
 
 	//For scoring
 	private float time;
@@ -60,14 +62,23 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (weather == WeatherState.Rain)
-                weather = WeatherState.Cold;
-            else if (weather == WeatherState.Cold)
-                weather = WeatherState.Sunny;
-            else
-                weather = WeatherState.Rain;
+			if (weather == WeatherState.Rain) 
+			{
+				weather = WeatherState.Cold;
+			} 
+			else if (weather == WeatherState.Cold) 
+			{
+				weather = WeatherState.Sunny;
+			} 
+			else 
+			{
+				weather = WeatherState.Rain;
+			}
 
 			weatherChanges++;
+
+			sfxSource.clip = WERChange;
+			sfxSource.Play ();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
