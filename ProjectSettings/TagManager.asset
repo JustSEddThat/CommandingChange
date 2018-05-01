@@ -9,6 +9,8 @@ TagManager:
   - Rain
   - Snow
   - Sun
+  - SFX
+  - Weather
   layers:
   - Default
   - TransparentFX

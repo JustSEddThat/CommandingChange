@@ -15,12 +15,14 @@ public class GameController : MonoBehaviour
 	public static WeatherState weather; 
 	public AudioSource sfxSource;
 	public AudioClip WERChange;
+	public AudioClip sunWER, rainWER, iceWER;
 
 	//For scoring
 	private float time;
 	public Text timeText;
 	private float weatherChanges;
 	private string level;
+	private AudioSource weatherAudio;
 
 
     void Start()
@@ -32,6 +34,7 @@ public class GameController : MonoBehaviour
         rain.SetActive(false);
         snow.SetActive(false);
 
+		weatherAudio = GameObject.FindGameObjectWithTag ("Weather").GetComponent<AudioSource>();
 		level = SceneManager.GetActiveScene ().name;
 
 
@@ -65,16 +68,20 @@ public class GameController : MonoBehaviour
 			if (weather == WeatherState.Rain) 
 			{
 				weather = WeatherState.Cold;
+				weatherAudio.clip = iceWER;
 			} 
 			else if (weather == WeatherState.Cold) 
 			{
 				weather = WeatherState.Sunny;
+				weatherAudio.clip = sunWER;
 			} 
 			else 
 			{
 				weather = WeatherState.Rain;
+				weatherAudio.clip = rainWER;
 			}
 
+			weatherAudio.Play ();
 			weatherChanges++;
 
 			sfxSource.clip = WERChange;

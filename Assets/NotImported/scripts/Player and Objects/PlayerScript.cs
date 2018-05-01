@@ -78,9 +78,11 @@ public class PlayerScript : MonoBehaviour
 	        }
 
 
+
         if (Input.GetKeyDown(KeyCode.UpArrow) && GetComponentInChildren<CircleCollider2D>().IsTouchingLayers(1<<8)&& !holding)
             rb.AddForce(new Vector2(0, jumpSpeed/Time.deltaTime));
 	}
+
 
     void OnCollisionEnter2D(Collision2D other)
     {

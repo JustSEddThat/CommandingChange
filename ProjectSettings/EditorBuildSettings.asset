@@ -24,10 +24,10 @@ EditorBuildSettings:
     path: Assets/NotImported/Scenes/3.unity
     guid: 369cdf324cf9f3c439e1f09bddc1b4fa
   - enabled: 1
-    path: Assets/NotImported/Scenes/5.unity
+    path: Assets/NotImported/Scenes/4.unity
     guid: c849f8b61d18424408aece8f1b0f057d
   - enabled: 1
-    path: Assets/NotImported/Scenes/4.unity
+    path: Assets/NotImported/Scenes/5.unity
     guid: 7c7fcb087a608284f83dc9f0d3e71107
   - enabled: 1
     path: Assets/NotImported/Scenes/Won.unity
